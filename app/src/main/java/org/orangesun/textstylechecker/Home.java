@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class Home extends Activity {
@@ -51,14 +52,54 @@ public class Home extends Activity {
      */
     public static class PlaceholderFragment extends Fragment {
 
+        private TextView view1;
+        private TextView view2;
+
         public PlaceholderFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+            view1 = (TextView) rootView.findViewById(R.id.text_view1);
+            view2 = (TextView) rootView.findViewById(R.id.text_view2);
+
+            EditText e1 = (EditText) rootView.findViewById(R.id.text_size1);
+            e1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    EditText textSizeView = (EditText) v;
+                    String textSize = textSizeView.getText().toString();
+                    int size = 10;
+                    if (textSize != null && textSize.length() != 0) {
+                        size = Integer.parseInt(textSize);
+                    }
+
+                    changeTextStyle(view1, size);
+                }
+            });
+
+            EditText e2 = (EditText) rootView.findViewById(R.id.text_size2);
+            e2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    EditText textSizeView = (EditText) v;
+                    String textSize = textSizeView.getText().toString();
+                    int size = 10;
+                    if (textSize != null && textSize.length() != 0) {
+                        size = Integer.parseInt(textSize);
+                    }
+                    changeTextStyle(view2, size);
+                }
+            });
+
             return rootView;
+        }
+
+        private void changeTextStyle(TextView view, int size) {
+            view.setTextSize(size);
         }
     }
 }
