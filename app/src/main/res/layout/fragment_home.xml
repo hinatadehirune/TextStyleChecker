@@ -9,8 +9,66 @@
     tools:context=".Home$PlaceholderFragment">
 
     <TextView
+        android:id="@id/text_label1"
+        android:layout_width="wrap_content"
+        android:layout_alignBaseline="@id/text_size1"
+        android:layout_height="wrap_content"
+        android:text="@string/text_size_label1"/>
+
+    <EditText
+        android:id="@+id/text_size1"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:hint="10"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/text_label1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_size_postfix"
+        android:layout_toRightOf="@id/text_size1"
+        android:layout_alignBaseline="@id/text_size1"/>
+
+    <TextView
+        android:id="@+id/text_label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_size_label2"
+        android:layout_below="@id/text_size1"
+        android:layout_alignBaseline="@id/text_size2"/>
+
+    <EditText
+        android:id="@+id/text_size2"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:hint="10"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/text_view2"
+        android:layout_below="@+id/text_size1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_size_postfix"
+        android:layout_toRightOf="@id/text_size2"
+        android:layout_below="@id/text_size1"
+        android:layout_alignBaseline="@id/text_size2"        />
+
+    <TextView
+        android:id="@+id/text_view1"
         android:text="@string/hello_world"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_size2"/>
+
+    <TextView
+        android:id="@+id/text_view2"
+        android:text="@string/hello_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view1"/>
 
 </RelativeLayout>
